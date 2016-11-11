@@ -1,0 +1,8 @@
+<div *ngIf="zone">
+  <h2>{{zone.name}} details</h2>
+  <div><label>id: </label>{{zone.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="zone.name" placeholder="name"/>
+  </div>
+</div>

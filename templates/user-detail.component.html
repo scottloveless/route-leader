@@ -1,0 +1,11 @@
+<div *ngIf="user">
+  <h2>{{user.name}} details</h2>
+  <div><label>id: </label>{{user.id}}</div>
+  <div><label>Certifications: </label> {{user.certs}}</div>
+  <div><label>Shots Thrown: </label> {{user.shotsThrown}}</div>
+  <div><label>Shots Observed: </label> {{user.shotsObserved}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="user.name" placeholder="name"/>
+  </div>
+</div>

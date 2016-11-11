@@ -9,15 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var user_service_1 = require('./user.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(userService) {
+        this.userService = userService;
     }
+    AppComponent.prototype.onSelect = function (user) {
+        this.selectedUser = user;
+    };
+    AppComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.userService.getUsers().then(function (users) { return _this.users = users; });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'route-leader',
-            template: '<h1>Route Leader</h1>'
+            templateUrl: '/templates/app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_service_1.UserService])
     ], AppComponent);
     return AppComponent;
 }());

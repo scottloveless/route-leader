@@ -1,0 +1,9 @@
+<h2>Zones</h2>
+<ul>
+  <li *ngFor="let zone of zones"
+  [class.selected]="zone === selectedZone"
+  (click)="onSelect(zone)" class="zone">
+    <img src="{{zone.imgUrl}}">
+    <h3>{{zone.name}}</h3> 
+  </li>
+</ul>

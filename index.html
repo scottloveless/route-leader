@@ -1,9 +1,10 @@
 <html>
   <head>
-    <title>Angular QuickStart</title>
+    <title>Route Leader</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik|Rubik+Mono+One" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
@@ -16,10 +17,21 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script
+  src="http://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
   </head>
   <!-- 3. Display the application -->
   <body>
     <route-leader>Loading...</route-leader>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
+
   </body>
 </html>
