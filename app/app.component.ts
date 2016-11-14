@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { User }                from './user';
-import { UserService }         from './user.service';
+import { User }        from './user';
+import { UserService } from './user.service';
 
 
 @Component({
@@ -10,7 +10,6 @@ import { UserService }         from './user.service';
 })
 
 export class AppComponent {
-
 
 }
 

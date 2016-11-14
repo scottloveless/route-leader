@@ -1,16 +1,13 @@
-<div class="container">
   <div class="row">
     <div class="col-md-5">
-      <li *ngFor="let user of users"
-        [class.selected]="user === selectedUser"
-        (click)="onSelect(user)" class="patroller">
-          <img src="{{user.imgUrl}}">
-          <h3>{{user.name}}</h3>
-          <p>{{user.level}}</p> 
-      </li>
+    <a *ngFor="let user of users"  [routerLink]="['/patroller', user.id]"  class="patroller">
+      <img src="{{user.imgUrl}}">
+      <h3>{{user.name}}</h3>
+      <p>{{user.level}}</p> 
+    </a>
+
     </div>
     <div class="col-md-7">
-      
+      <zones></zones>
     </div>
   </div>
-</div>

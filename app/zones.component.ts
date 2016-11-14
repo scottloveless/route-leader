@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { OnInit }           from '@angular/core';
 
 import { Zone }                from './zone';
 import { ZoneService }         from './zone.service';
