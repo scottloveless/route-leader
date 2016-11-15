@@ -1,6 +1,9 @@
 <div *ngIf="user">
   <h2>{{user.name}} details</h2>
+
+  <div><img src="{{user.imgUrl}}" alt=""></div>
   <div><label>id: </label>{{user.id}}</div>
+  <div><label>Level: </label>{{user.level}}</div>
   <div><label>Certifications: </label> {{user.certs}}</div>
   <div><label>Shots Thrown: </label> {{user.shotsThrown}}</div>
   <div><label>Shots Observed: </label> {{user.shotsObserved}}</div>
@@ -8,5 +11,5 @@
     <label>name: </label>
     <input [(ngModel)]="user.name" placeholder="name"/>
   </div>
-  <button (click)="goBack()">Back</button>
+  <button (click)="goBack()" class="btn">Back</button>
 </div>

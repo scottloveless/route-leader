@@ -24,8 +24,8 @@ svg {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
-var width = 960,
-    height = 500;
+var width = 800,
+    height = 600;
 
 var randomX = d3.random.normal(width / 2, 80),
     randomY = d3.random.normal(height / 2, 80);
@@ -50,6 +50,13 @@ var svg = d3.select("body").append("svg")
     .attr("height", height)
   .append("g")
     .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom));
+
+var image = svg.append("image")
+  .attr("xlink:href", "/img/peak1.jpg")
+  .attr("x", "0")
+  .attr("y", "0")
+  .attr("width", '100%')
+  .attr("height", '100%');
 
 
 

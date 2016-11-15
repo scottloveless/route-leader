@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
@@ -17,8 +17,6 @@ export class UserDetailComponent implements OnInit {
 
   user: User;
 
-  users: User[] = [];
-
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -27,7 +25,7 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      let id = +params['z id'];
+      let id = +params['id'];
       this.userService.getUser(id)
         .then(user => this.user = user);
     });

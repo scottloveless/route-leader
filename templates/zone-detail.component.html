@@ -1,8 +1,25 @@
 <div *ngIf="zone">
   <h2>{{zone.name}} details</h2>
-  <div><label>id: </label>{{zone.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="zone.name" placeholder="name"/>
+
+  <div class="map-container">
+    <div class="map">
+      <!-- <img src="{{zone.imgUrl}}" alt="{{zone.name}}"> -->
+      <svg id="map" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <g (click)="getCoords($event)">
+          <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" width="3000" height="2000" />
+        </g>
+        <g id="abc123">
+          <circle id="abc123" cx="2020" cy="480" r="15" fill="red" stroke="none" stroke-width="0" />
+          <circle id="abc123" cx="2070" cy="490" r="15" fill="red" stroke="none" stroke-width="0" />
+          <circle id="abc123" cx="2050" cy="420" r="15" fill="red" stroke="none" stroke-width="0" />
+        </g>
+      </svg>
+      
+    </div>
   </div>
+
+  <button (click)="goBack()" class="btn">Back</button>
+  
 </div>
+
+

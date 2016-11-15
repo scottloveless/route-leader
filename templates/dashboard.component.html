@@ -1,13 +1,11 @@
+<div class="dashboard">
   <div class="row">
     <div class="col-md-5">
-    <a *ngFor="let user of users"  [routerLink]="['/patroller', user.id]"  class="patroller">
-      <img src="{{user.imgUrl}}">
-      <h3>{{user.name}}</h3>
-      <p>{{user.level}}</p> 
-    </a>
+    <users></users>
 
     </div>
     <div class="col-md-7">
       <zones></zones>
     </div>
   </div>
+</div>

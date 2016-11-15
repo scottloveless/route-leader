@@ -1,25 +1,3 @@
-.zone {
-  background-color: rgba(0,0,0,.05);
-  margin: .5em 0 .5em;
-  padding: .5em;
-  list-style: none;
-  border-radius: 1px;
-}
-
-li.zone h3 {
-  margin: .5em 0 .5em;
-}
-
-li.zone img {
-  float: left;
-  width: 200px;
-  margin-right: .5em;
-}
-
-.selected {
-  background-color: rgba(0,0,0,.1);
-}
-
-ul {
-  padding: 0;
+img {
+  max-width: 200px;
 }
