@@ -16,7 +16,7 @@ declare let svgPanZoom: any;
 })
 
 export class ZoneDetailComponent implements OnInit {
-
+  panZoomInstance: any;
   zone: Zone;
 
   constructor(
@@ -31,69 +31,53 @@ export class ZoneDetailComponent implements OnInit {
       this.zoneService.getZone(id)
         .then(zone => this.zone = zone);
     });
+    let self = this; // hax
 
     $(function() {
-      let panZoomInstance = svgPanZoom('#map', {
+      self.panZoomInstance = svgPanZoom('#map', {
         zoomEnabled: true,
         controlIconsEnabled: true,
-        fit: true,
+        fit: false,
+        contain: true,
         center: true,
-        minZoom: 1
+        minZoom: 1,
+        maxZoom: 20,
+        beforePan: function(oldPan, newPan){
+          let stopHorizontal = false
+            , stopVertical = false
+              // Computed variables
+            , sizes = this.getSizes()
+            , leftLimit = sizes.width - sizes.viewBox.width * sizes.realZoom
+            , rightLimit = 0
+            , topLimit = sizes.height - sizes.viewBox.height * sizes.realZoom
+            , bottomLimit = 0;
+
+          let customPan: any = {};
+          customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
+          customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y));
+          // console.log(sizes.realZoom);
+          return customPan;
+        }
       });
   
       // zoom out
-      panZoomInstance.zoom(1);
+      self.panZoomInstance.zoom(1);
 
     });
+
   }
+     getCoords(evt): void {
+      let sizes = this.panZoomInstance.getSizes();
+      let e = evt.target;
+      let dim = e.getBoundingClientRect();
+      let x = (evt.clientX - dim.left);
+      let y = (evt.clientY - dim.top);
+      console.log("x: " + x + " y:" + y);
+
+    };
 
   goBack(): void {
     this.location.back();
   }
 
-  getCoords(evt): void {
-    var e = evt.target;
-    var dim = e.getBoundingClientRect();
-    var x = evt.clientX - dim.left;
-    var y = evt.clientY - dim.top;
-    console.log("x: " + x + " y:" + y);
-  }
-
 }
-
-/*
-      // Don't use window.onLoad like this in production, because it can only listen to one function.
-      window.onload = function() {
-        var beforePan
-
-        beforePan = function(oldPan, newPan){
-          var stopHorizontal = false
-            , stopVertical = false
-            , gutterWidth = 100
-            , gutterHeight = 100
-              // Computed variables
-            , sizes = this.getSizes()
-            , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth
-            , rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
-            , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
-            , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
-
-          customPan = {}
-          customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
-          customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-
-          return customPan
-        }
-
-        // Expose to window namespace for testing purposes
-        window.panZoom = svgPanZoom('#limit-svg', {
-          zoomEnabled: true
-        , controlIconsEnabled: true
-        , fit: 1
-        , center: 1
-        , beforePan: beforePan
-        });
-
-        // panZoom.setBeforePan(beforePan)
-      };
-*/

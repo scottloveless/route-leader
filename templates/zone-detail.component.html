@@ -3,15 +3,16 @@
 
   <div class="map-container">
     <div class="map">
-      <!-- <img src="{{zone.imgUrl}}" alt="{{zone.name}}"> -->
       <svg id="map" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <g>
         <g (click)="getCoords($event)">
-          <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" width="3000" height="2000" />
+          <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" attr.width="{{zone.imgWidth}}" attr.height="{{zone.imgHeight}}" />
         </g>
-        <g id="abc123">
-          <circle id="abc123" cx="2020" cy="480" r="15" fill="red" stroke="none" stroke-width="0" />
-          <circle id="abc123" cx="2070" cy="490" r="15" fill="red" stroke="none" stroke-width="0" />
-          <circle id="abc123" cx="2050" cy="420" r="15" fill="red" stroke="none" stroke-width="0" />
+        <g id="andit">
+          <circle id="dorpg" cx="2020" cy="480" r="15" fill="red" stroke="none" stroke-width="0" />
+          <circle id="xkade" cx="2070" cy="490" r="15" fill="red" stroke="none" stroke-width="0" />
+          <circle id="curpd" cx="2050" cy="420" r="15" fill="red" stroke="none" stroke-width="0" />
+        </g>
         </g>
       </svg>
       
