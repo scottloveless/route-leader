@@ -1,0 +1,28 @@
+<div *ngIf="zone">
+  <h2>Add New {{zone.name}} Mission</h2>
+
+  <div class="map-container">
+    <div class="map">
+      <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+        <g (click)="addShot($event)">
+          <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" attr.width="{{zone.imgWidth}}" attr.height="{{zone.imgHeight}}" />
+        </g>
+
+        <g id="missions">
+        </g>
+
+      </svg>
+      
+    </div>
+  </div>
+  
+  <div class="btn-toolbar">
+    <button class="btn">Move</button>
+    <button class="btn">Place Shot</button>
+  </div>
+  <button (click)="goBack()" class="btn">Back</button>
+  
+</div>
+
+

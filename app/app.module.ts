@@ -11,6 +11,7 @@ import { UserDetailComponent } from './user-detail.component';
 
 import { ZonesComponent }      from './zones.component';
 import { ZoneDetailComponent } from './zone-detail.component';
+import { CreateMissionComponent } from './create-mission.component';
 
 import { UserService }         from './user.service';
 import { ZoneService }         from './zone.service';
@@ -27,7 +28,8 @@ import { AppRoutingModule }     from './app-routing.module';
                   UsersComponent,
                   UserDetailComponent,
                   ZonesComponent,
-                  ZoneDetailComponent ],
+                  ZoneDetailComponent,
+                  CreateMissionComponent ],
   providers:    [ UserService,
                   ZoneService ],
   bootstrap:    [ AppComponent ]

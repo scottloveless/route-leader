@@ -6,6 +6,5 @@ export class User {
   certs: [string];
   shotsThrown: number;
   shotsObserved: number;
-  // missions: [Mission.id];
 }
 

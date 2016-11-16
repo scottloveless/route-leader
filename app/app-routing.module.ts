@@ -8,6 +8,7 @@ import { UsersComponent }      from './users.component';
 import { UserDetailComponent } from './user-detail.component';
 import { ZonesComponent }      from './zones.component';
 import { ZoneDetailComponent } from './zone-detail.component';
+import { CreateMissionComponent } from './create-mission.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'patroller/:id', component: UserDetailComponent },
   { path: 'patrollers', component: UsersComponent },
   { path: 'zone/:id', component: ZoneDetailComponent },
-  { path: 'zones', component: ZonesComponent }
+  { path: 'zones', component: ZonesComponent },
+  { path: 'add-mission/:id', component: CreateMissionComponent }
 ];
 
 @NgModule({

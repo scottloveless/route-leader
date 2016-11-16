@@ -18,6 +18,7 @@ var users_component_1 = require('./users.component');
 var user_detail_component_1 = require('./user-detail.component');
 var zones_component_1 = require('./zones.component');
 var zone_detail_component_1 = require('./zone-detail.component');
+var create_mission_component_1 = require('./create-mission.component');
 var user_service_1 = require('./user.service');
 var zone_service_1 = require('./zone.service');
 var app_routing_module_1 = require('./app-routing.module');
@@ -35,7 +36,8 @@ var AppModule = (function () {
                 users_component_1.UsersComponent,
                 user_detail_component_1.UserDetailComponent,
                 zones_component_1.ZonesComponent,
-                zone_detail_component_1.ZoneDetailComponent],
+                zone_detail_component_1.ZoneDetailComponent,
+                create_mission_component_1.CreateMissionComponent],
             providers: [user_service_1.UserService,
                 zone_service_1.ZoneService],
             bootstrap: [app_component_1.AppComponent]

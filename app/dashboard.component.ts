@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { User }        from './user';
 import { UserService } from './user.service';
 
+import { Zone }        from './zone';
+import { ZoneService } from './zone.service';
+
 @Component({
   selector: 'dashboard',
   templateUrl: 'templates/dashboard.component.html',
