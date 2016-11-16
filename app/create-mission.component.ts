@@ -1,4 +1,4 @@
-import { Component, OnInit }      from '@angular/core';
+import { Component, Input, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
@@ -6,6 +6,12 @@ import { Zone }        from './zone';
 import { ZoneService } from './zone.service';
 
 import { Mission } from './mission';
+import { User } from './user';
+import { UserService } from './user.service';
+import { USERS } from './mock-users';
+
+import { Element } from './element';
+
 
 declare let $: any;
 declare let svgPanZoom: any;
@@ -21,10 +27,10 @@ export class CreateMissionComponent implements OnInit {
   panZoomInstance: any;
   zone: Zone;
   newMission: Mission = {
-    id: 123,
-    date: "date",
-    patrollers: ["Scott"],
-    elements: ["stuff"],
+    date: "",
+    patrollerIds: [],
+    elements: [],
+    notes: ""
   };
 
   constructor(
@@ -32,6 +38,9 @@ export class CreateMissionComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
   ) {}
+
+  @Input()
+  mission: Mission;
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
@@ -82,14 +91,29 @@ export class CreateMissionComponent implements OnInit {
     let x = (evt.clientX - dim.left) / sizes.realZoom;
     let y = (evt.clientY - dim.top) / sizes.realZoom;
     let newGroup = document.getElementById('missions'); 
-    let newElement: any = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-    newElement.setAttribute("cx", x);
-    newElement.setAttribute("cy", y);
-    newElement.setAttribute("r", "15");
-    newElement.style.stroke = "none";
-    newElement.style.fill = "red";
-    newGroup.appendChild(newElement);
+    let newSvgElement: any = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+      newSvgElement.setAttribute("cx", x);
+      newSvgElement.setAttribute("cy", y);
+      newSvgElement.setAttribute("r", "15");
+      newSvgElement.style.fill = "red";
+      newGroup.appendChild(newSvgElement);
+
+    let newElement: Element = new Element();
+      newElement.patrollerId = "3";
+      newElement.x = x;
+      newElement.y = y;
+
+    this.newMission.elements.push(newElement);
+    console.log(this.newMission);
   };
+
+  saveMission(): void {
+    this.zone.missions.push(this.newMission);
+    console.log(this.zone);
+
+  }
+
+
 
   goBack(): void {
     this.location.back();

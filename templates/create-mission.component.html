@@ -1,6 +1,6 @@
 <div *ngIf="zone">
   <h2>Add New {{zone.name}} Mission</h2>
-
+  <label>Date: </label><input [(ngModel)]="newMission.date" type="date">
   <div class="map-container">
     <div class="map">
       <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -20,6 +20,7 @@
   <div class="btn-toolbar">
     <button class="btn">Move</button>
     <button class="btn">Place Shot</button>
+    <button (click)="saveMission()" class="btn btn-primary">Save</button>
   </div>
   <button (click)="goBack()" class="btn">Back</button>
   

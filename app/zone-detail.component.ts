@@ -5,6 +5,8 @@ import { Location }               from '@angular/common';
 import { Zone }        from './zone';
 import { ZoneService } from './zone.service';
 
+import { Mission } from './mission';
+ 
 declare let $: any;
 declare let svgPanZoom: any;
 
@@ -18,6 +20,8 @@ declare let svgPanZoom: any;
 export class ZoneDetailComponent implements OnInit {
   panZoomInstance: any;
   zone: Zone;
+
+  activeMissions: Mission[] = [];
 
   constructor(
     private zoneService: ZoneService,
@@ -89,6 +93,15 @@ export class ZoneDetailComponent implements OnInit {
 
   addNew(): void {
     this.router.navigate(['/add-mission', this.zone.id]);
+  }
+
+  toggleMission(mission: Mission): void {
+    let index = this.activeMissions.indexOf(mission);
+      if (index === -1) {
+          this.activeMissions.push(mission);
+      } else {
+          this.activeMissions.splice(index, 1);
+      }
   }
 
 

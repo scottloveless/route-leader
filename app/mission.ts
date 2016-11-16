@@ -1,9 +1,10 @@
 import { User } from './user';
+import { Element } from './element';
 
 export class Mission {
-  id: number;
   date: string;
-  patrollers: [string]; // User.id???
-  elements: [string];
+  patrollerIds: string[];
+  elements: Element[];
+  notes: string;
 }
 

@@ -5,6 +5,6 @@ export class Zone {
   imgUrl: string;
   imgWidth: number;
   imgHeight: number;
-  // missions: [Mission];
+  missions: Mission[];
 }
 

@@ -1,8 +1,7 @@
 import { User } from './user';
 
-export class Mission {
-  id: number;
-  patroller: User; // User.id???
+export class Element {
+  patrollerId: string;
   x: number;
   y: number;
 }
