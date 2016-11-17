@@ -1,7 +1,12 @@
 <div class="row" *ngIf="zone">
-
+  <div class="col-sm-12">
+    <h2>{{zone.name}}</h2>
+  </div>
   <div class="col-sm-2">
-    <div *ngFor="let mission of zone.missions">
+    <div *ngFor="let mission of zone.missions"
+      (click)="onSelect(mision)"
+      [class.active]="mission === selectedMission"
+    >
       <button (click)="toggleMission(mission)" class="btn btn-block">{{mission.date}}</button>
     </div>
     <p>Click on a mission to toggle its display</p>
@@ -9,7 +14,6 @@
     <button (click)="addNew()" class="btn">Add New</button>
   </div>
   <div class="col-sm-10">
-    <h2>{{zone.name}} details</h2>
     <div class="map-container">
       <div class="map">
           <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -24,7 +28,7 @@
               [attr.cy]="element.y"
               r="15"
               stroke="none"
-              fill="rgba(252,76,0,.9)"
+              fill="rgba(218,40,28,1)"
             ></circle>
             </g>
 

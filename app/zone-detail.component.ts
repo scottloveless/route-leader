@@ -22,6 +22,7 @@ export class ZoneDetailComponent implements OnInit {
   zone: Zone;
 
   activeMissions: Mission[] = [];
+  selectedMission: Mission;
 
   constructor(
     private zoneService: ZoneService,
@@ -76,6 +77,9 @@ export class ZoneDetailComponent implements OnInit {
     });
 
   }
+  onSelect(mission: Mission): void {
+      this.selectedMission = mission;
+    }
 
   getCoords(evt): void {
     let sizes = this.panZoomInstance.getSizes();

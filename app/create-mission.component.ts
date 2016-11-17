@@ -26,6 +26,7 @@ declare let svgPanZoom: any;
 export class CreateMissionComponent implements OnInit {
   panZoomInstance: any;
   zone: Zone;
+  patrollers = USERS;
   newMission: Mission = {
     date: "",
     patrollerIds: [],
@@ -84,19 +85,16 @@ export class CreateMissionComponent implements OnInit {
 
   }
 
+  addPatroller(): void {
+    console.log("added!");
+  }
+
   addShot(evt): void {
     let sizes = this.panZoomInstance.getSizes();
     let e = evt.target;
     let dim = e.getBoundingClientRect();
     let x = (evt.clientX - dim.left) / sizes.realZoom;
     let y = (evt.clientY - dim.top) / sizes.realZoom;
-    let newGroup = document.getElementById('missions'); 
-    let newSvgElement: any = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-      newSvgElement.setAttribute("cx", x);
-      newSvgElement.setAttribute("cy", y);
-      newSvgElement.setAttribute("r", "15");
-      newSvgElement.style.fill = "red";
-      newGroup.appendChild(newSvgElement);
 
     let newElement: Element = new Element();
       newElement.patrollerId = "3";
@@ -112,8 +110,6 @@ export class CreateMissionComponent implements OnInit {
     console.log(this.zone);
 
   }
-
-
 
   goBack(): void {
     this.location.back();

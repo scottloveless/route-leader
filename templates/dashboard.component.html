@@ -1,24 +1,28 @@
 <div class="dashboard">
   <div class="row">
     <div class="col-md-5">
-    <users></users>
+      <div class="module">
+        <users></users>
+      </div>
 
     </div>
     <div class="col-md-7">
-      <h2>Recent Missions</h2>
-      <ul>
-        <li>
-          <a *ngFor="let zone of zones"
-          [routerLink]="['/zone', zone.id]"
-          [class.selected]="zone === selectedZone"
-          (click)="onSelect(zone)" class="zone">
-            <img src="{{zone.imgUrl}}">
-            <h3>{{zone.name}}</h3>
-            <p>Last Mission: Date</p> 
-          </a>
-          <div class="clearfix"></div>
-        </li>
-      </ul>
+      <div class="module">
+        <h2>Recent Missions</h2>
+        <ul>
+          <li>
+            <a *ngFor="let zone of zones"
+            [routerLink]="['/zone', zone.id]"
+            [class.selected]="zone === selectedZone"
+            (click)="onSelect(zone)" class="zone">
+              <img src="{{zone.imgUrl}}">
+              <h3>{{zone.name}}</h3>
+              <p>Last Mission: Date</p> 
+            </a>
+            <div class="clearfix"></div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

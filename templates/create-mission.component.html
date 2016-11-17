@@ -1,6 +1,12 @@
 <div *ngIf="zone">
   <h2>Add New {{zone.name}} Mission</h2>
-  <label>Date: </label><input [(ngModel)]="newMission.date" type="date">
+
+  <label>Date: </label><input class="form-control" [(ngModel)]="newMission.date" type="date">
+  <label>Patrollers: </label>
+  <select class="form-control" (change)="addPatroller()">
+    <option *ngFor="let patroller of patrollers">{{patroller.name}}</option>
+  </select>
+
   <div class="map-container">
     <div class="map">
       <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -9,7 +15,14 @@
           <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" attr.width="{{zone.imgWidth}}" attr.height="{{zone.imgHeight}}" />
         </g>
 
-        <g id="missions">
+        <g class="missions">
+          <circle *ngFor="let element of newMission.elements"
+            [attr.cx]="element.x"
+            [attr.cy]="element.y"
+            r="15"
+            stroke="none"
+            fill="rgba(218,40,28,1)"
+          ></circle>
         </g>
 
       </svg>
