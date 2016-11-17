@@ -1,28 +1,32 @@
-<div *ngIf="user">
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>{{user.name}}</h1><div><label>id: </label>{{user.id}}</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div><label>name: </label><input [(ngModel)]="user.name" placeholder="name"/></div>
-      <div><img src="{{user.imgUrl}}" alt="{{user.name}}"></div>
-      <div><label>Level: </label>{{user.level}}</div>
-      <div><label>Certifications: </label> {{user.certs}}</div>
-      <div><label>Shots Thrown: </label> {{user.shotsThrown}}</div>
-      <div><label>Shots Observed: </label> {{user.shotsObserved}}</div>
-    </div>
-    <div class="col-sm-8">
-      <h2>Mission History</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <button (click)="goBack()" class="btn">Back</button>
-    </div>
-  </div>
+<div class="user-detail">
   
+  <div *ngIf="user">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>{{user.name}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- <div><label>name: </label><input [(ngModel)]="user.name" placeholder="name"/></div> -->
+        <div><img src="{{user.imgUrl}}" alt="{{user.name}}"></div>
+        <div><label>Level: </label>{{user.level}}</div>
+        <div><label>Certifications: </label> {{user.certs}}</div>
+        <div><label>Shots Thrown: </label> {{user.shotsThrown}}</div>
+        <div><label>Shots Observed: </label> {{user.shotsObserved}}</div>
+        <div class="small"><label>id: </label>{{user.id}}</div>
+      </div>
+      <div class="col-sm-8">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <button (click)="goBack()" class="btn">Back</button>
+      </div>
+    </div>
+    
+  </div>
 </div>
 

@@ -3,13 +3,12 @@
     <h2>{{zone.name}}</h2>
   </div>
   <div class="col-sm-2">
-    <div *ngFor="let mission of zone.missions"
-      (click)="onSelect(mision)"
-      [class.active]="mission === selectedMission"
-    >
-      <button (click)="toggleMission(mission)" class="btn btn-block">{{mission.date}}</button>
+    <p>Click on a mission to toggle display</p>
+    <div *ngFor="let mission of zone.missions">
+      <button (click)="toggleMission(mission)"
+              [ngClass]="{'active' : isActive(mission)}"
+              class="btn btn-block">{{mission.date}}</button>
     </div>
-    <p>Click on a mission to toggle its display</p>
     <button (click)="goBack()" class="btn">Back</button>
     <button (click)="addNew()" class="btn">Add New</button>
   </div>
@@ -26,7 +25,7 @@
             <circle *ngFor="let element of mission.elements"
               [attr.cx]="element.x"
               [attr.cy]="element.y"
-              r="15"
+              [attr.r]="5/panZoomInstance.getSizes().realZoom"
               stroke="none"
               fill="rgba(218,40,28,1)"
             ></circle>

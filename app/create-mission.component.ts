@@ -34,6 +34,7 @@ export class CreateMissionComponent implements OnInit {
     notes: ""
   };
 
+
   constructor(
     private zoneService: ZoneService,
     private route: ActivatedRoute,
@@ -85,8 +86,9 @@ export class CreateMissionComponent implements OnInit {
 
   }
 
-  addPatroller(): void {
-    console.log("added!");
+  addPatroller(patrollerId: string): void {
+    this.newMission.patrollerIds.push(patrollerId);
+    console.log("added!" + patrollerId);
   }
 
   addShot(evt): void {
@@ -103,6 +105,7 @@ export class CreateMissionComponent implements OnInit {
 
     this.newMission.elements.push(newElement);
     console.log(this.newMission);
+    // newElement.r = 15 / sizes.realZoom;
   };
 
   saveMission(): void {

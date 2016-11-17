@@ -101,12 +101,19 @@ export class ZoneDetailComponent implements OnInit {
 
   toggleMission(mission: Mission): void {
     let index = this.activeMissions.indexOf(mission);
-      if (index === -1) {
+      if (index === -1) {         
           this.activeMissions.push(mission);
       } else {
           this.activeMissions.splice(index, 1);
       }
   }
 
-
+  isActive(mission) {
+    return this.activeMissions.includes(mission);
+  }
+  
 }
+
+
+
+

@@ -1,34 +1,53 @@
 <div *ngIf="zone">
-  <h2>Add New {{zone.name}} Mission</h2>
+  <div class="row">
+    <div class="col-sm-12"><h2>Add New {{zone.name}} Mission</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <label>Date: </label><input class="form-control" [(ngModel)]="newMission.date" type="date">
+      <label>Patrollers: </label>
+        <select id="patroller-selector" class="form-control" (change)="addPatroller($event.target.value)">
+        <option value="Select all that apply"></option>
+          <option *ngFor="let patroller of patrollers" [value]="patroller.id">{{patroller.name}}</option>
+        </select>
+    </div>
+    <div class="col-sm-8">
+      <div class="assigned-patrollers">
+        
+      </div>
+    </div>
 
-  <label>Date: </label><input class="form-control" [(ngModel)]="newMission.date" type="date">
-  <label>Patrollers: </label>
-  <select class="form-control" (change)="addPatroller()">
-    <option *ngFor="let patroller of patrollers">{{patroller.name}}</option>
-  </select>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="map-container">
+        <div class="map">
+          <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
 
-  <div class="map-container">
-    <div class="map">
-      <svg id="zone-map" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <g (click)="addShot($event)">
+              <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" attr.width="{{zone.imgWidth}}" attr.height="{{zone.imgHeight}}" />
+            </g>
 
-        <g (click)="addShot($event)">
-          <image attr.xlink:href="{{zone.imgUrl}}" x="0" y="0" attr.width="{{zone.imgWidth}}" attr.height="{{zone.imgHeight}}" />
-        </g>
+            <g class="missions">
+              <circle *ngFor="let element of newMission.elements"
+                [attr.cx]="element.x"
+                [attr.cy]="element.y"
+                [attr.r]="5/panZoomInstance.getSizes().realZoom"
+                stroke="none"
+                fill="rgba(218,40,28,1)"
+              ></circle>
+            </g>
 
-        <g class="missions">
-          <circle *ngFor="let element of newMission.elements"
-            [attr.cx]="element.x"
-            [attr.cy]="element.y"
-            r="15"
-            stroke="none"
-            fill="rgba(218,40,28,1)"
-          ></circle>
-        </g>
-
-      </svg>
-      
+          </svg>
+          
+        </div>
+      </div>
     </div>
   </div>
+
+  
+  
+
   
   <div class="btn-toolbar">
     <button class="btn">Move</button>

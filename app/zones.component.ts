@@ -27,9 +27,13 @@ export class ZonesComponent implements OnInit {
     this.zoneService.getZones().then(zones => this.zones = zones);
   }
 
-    ngOnInit(): void {
-      this.getZones();
-    }
+  ngOnInit(): void {
+    this.getZones();
+  }
+
+  getMissionCount() {
+    
+  }
 
 }
 

@@ -4,10 +4,10 @@
     <a *ngFor="let zone of zones"
     [routerLink]="['/zone', zone.id]"
     [class.selected]="zone === selectedZone"
-    (click)="onSelect(zone)" class="zone">
+    (click)="onSelect(zone)" class="module-item zone">
       <img src="{{zone.imgUrl}}">
       <h3>{{zone.name}}</h3>
-      <p>Last Mission: Date</p> 
+      <p>missions</p> 
     </a>
     <div class="clearfix"></div>
   </li>

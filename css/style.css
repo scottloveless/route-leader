@@ -8,6 +8,7 @@ body {
   /*padding-top: 50px;*/
   margin-bottom: 60px; /* Margin bottom by footer height */
   background-color: rgba(244,244,244,1);
+  /*background: url(/img/bg.jpg) top center / cover no-repeat;*/
 }
 
 /* App-bar CSS
@@ -21,6 +22,10 @@ body {
 
 .navbar a {
   color: rgba(153,153,153,1);
+}
+
+.navbar ul a {
+  padding: 15px;
 }
 
 .navbar a:hover, .navbar a:focus {
@@ -59,8 +64,10 @@ body {
 }
 
 .navbar img {
+  margin: 0;
   width: 2em;
-  margin-right: 1em;
+  margin-right: .5em;
+  margin: -4px .5em -4px 0;
 }
 
 .navbar-toggle {
@@ -74,25 +81,37 @@ body {
 /* Dashboard CSS
 -------------------------------------------------- */
 
-.patroller {
-  background-color: rgba(0,0,0,.025);
+.module-item {
+  background-color: rgba(230,230,230,1);
   margin: .5em 0 .5em;
-  padding: 1em;
+  padding: .75em;
   list-style: none;
   border-radius: 1px;
   display: block;
-  border: 6px solid rgba(47,47,47,1);
+  border: 3px solid rgba(47,47,47,1);
   box-shadow: 0 3px 0 rgba(0,0,0,.5);
 }
 
-.patroller h3 {
+.module-item:hover {
+  background-color: rgba(205,205,205,1);
+}
+a.module-item {
+  color: rgba(47,47,47,1);
+}
+
+a.module-item:hover {
+  color: rgba(47,47,47,1);
+  text-decoration: none;
+}
+
+.module-item h3 {
   margin: .5em 0 .5em;
 }
 
-.patroller img {
-  /*float: left;*/
+.module-item img {
+  float: left;
   width: 80px;
-  margin-right: .5em;
+  margin-right: .75em;
   border: 3px solid rgba(47,47,47,1);
 }
 
@@ -142,7 +161,7 @@ img {
   width: 100%;
   padding-bottom: calc(100% * 1/2 );
   height: 0;
-  border: 6px solid rgba(0,0,0,1);
+  border: 6px solid rgba(47,47,47,1);
   box-shadow: 0 3px 0 rgba(0,0,0,.5);
 }
 

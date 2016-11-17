@@ -15,5 +15,6 @@ export class ZoneService {
   return this.getZones()
              .then(zones => zones.find(zone => zone.id === id));
   }
-  
+
+
 }

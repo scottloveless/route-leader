@@ -15,12 +15,20 @@ import { ZoneService } from './zone.service';
 export class DashboardComponent implements OnInit {
 
   users: User[] = [];
+  zones: Zone[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private zoneService: ZoneService
+
+    ) { }
 
   ngOnInit(): void {
     this.userService.getUsers()
-      .then(users => this.users = users.slice(1, 3));
+      .then(users => this.users = users);
+
+    this.zoneService.getZones()
+      .then(zones => this.zones = zones);
   }
 }
 

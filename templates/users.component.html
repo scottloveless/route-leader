@@ -1,13 +1,21 @@
 <h2>Patrollers</h2>
-<ul>
-  <li>
-    <a *ngFor="let user of users"
-    [routerLink]="['/patroller', user.id]"
-    [class.selected]="user === selectedUser"
-    (click)="onSelect(user)" class="patroller">
-      <img src="{{user.imgUrl}}">
-      <h3>{{user.name}}</h3>
-      <p>{{user.level}}</p> 
-    </a>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-sm-4">
+    <ul>
+      <li>
+        <a *ngFor="let user of users"
+        [routerLink]="['/patroller', user.id]"
+        [class.selected]="user === selectedUser"
+        (click)="onSelect(user)" class="module-item">
+          <img src="{{user.imgUrl}}">
+          <h3>{{user.name}}</h3>
+          <p>{{user.level}}</p> 
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+  <div class="col-sm-8">
+    
+  </div>
+</div>
